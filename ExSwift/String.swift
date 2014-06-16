@@ -21,9 +21,9 @@ extension String {
     *  Returns the substring in the given range
     *  @return Substring
     */
-//    subscript (range: Range<Int>) -> String? {
-//        return Array(self).get(range).reduce(String(), +)
-//    }
+    subscript (range: Range<Int>) -> String? {
+        return Array(self).get(range).reduce(String(), +)
+    }
 
     /**
     *  Same as `at`
@@ -88,9 +88,9 @@ extension String {
     /**
     *  Inserts `string` before the character at the given `index`
     */
-//    func insert (index: Int, _ string: String) -> String {
-//        return self[0..index]! + string + self[index..length]!
-//    }
+    func insert (index: Int, _ string: String) -> String {
+        return self[0..index]! + string + self[index..length]!
+    }
 
     /**
      * Strip whitespace from the beginning of a string.
@@ -121,22 +121,22 @@ extension String {
     *  @param charset Chars to use in the random string costruction
     *  @return Random string
     */
-//    static func random (var length len: Int = 0, charset: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") -> String {
-//        
-//        if len < 1 {
-//            len = Int.random(max: 16)
-//        }
-//        
-//        var result = String()
-//        let max = charset.length - 1
-//        
-//        len.times {
-//          result += charset[Int.random(min: 0, max: max)]!
-//        }
-//
-//        return result
-//
-//    }
+    static func random (var length len: Int = 0, charset: String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") -> String {
+        
+        if len < 1 {
+            len = Int.random(max: 16)
+        }
+        
+        var result = String()
+        let max = charset.length - 1
+        
+        len.times {
+          result += charset[Int.random(min: 0, max: max)]!
+        }
+
+        return result
+
+    }
     
 }
 

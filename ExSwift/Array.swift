@@ -194,9 +194,9 @@ extension Array {
     *  @return Subarray in range
     */
 
-//    func get (range: Range<Int>) -> Array {
-//        return self[range]
-//    }
+    func get (range: Range<Int>) -> Array {
+        return self[range]
+    }
 
     /**
     *  Creates an array of grouped elements, the first of which contains the first elements of the given arrays, the 2nd contains the 2nd elements of the given arrays, and so on
@@ -261,14 +261,14 @@ extension Array {
     *  @param n Length
     *  @return Random subarray of length n
     */
-//    func sample (size n: Int = 1) -> Array {
-//        if n >= count {
-//            return self
-//        }
-//        
-//        let index = Int.random(max: count - n)
-//        return self[index..(n + index)]
-//    }
+    func sample (size n: Int = 1) -> Array {
+        if n >= count {
+            return self
+        }
+        
+        let index = Int.random(max: count - n)
+        return self[index..(n + index)]
+    }
 
     /**
     *  Returns the max value in the current array
@@ -379,65 +379,65 @@ extension Array {
     *  Returns the first n elements from self
     *  @return First n elements
     */
-//    func take (n: Int) -> Array {
-//        return self[0..n]
-//    }
+    func take (n: Int) -> Array {
+        return self[0..n]
+    }
 
     /**
     *  Returns the elements of the array up until an element does not meet the condition
     *  @param condition A function which returns a boolean if an element satisfies a given condition or not.
     *  @return Elements of the array up until an element does not meet the condition
     */
-//    func takeWhile (condition: (Element) -> Bool) -> Array {
-//        
-//        var lastTrue = -1
-//        
-//        for (index, value) in enumerate(self) {
-//            if condition(value) {
-//                lastTrue = index
-//            } else {
-//                break
-//            }
-//        }
-//        
-//        return self.take(lastTrue+1)
-//    }
+    func takeWhile (condition: (Element) -> Bool) -> Array {
+        
+        var lastTrue = -1
+        
+        for (index, value) in enumerate(self) {
+            if condition(value) {
+                lastTrue = index
+            } else {
+                break
+            }
+        }
+        
+        return self.take(lastTrue+1)
+    }
 
     /**
     *  Returns the last n elements from self
     *  @return Last n elements
     */
-//    func tail (n: Int) -> Array {
-//        return self[(count - n)..count]
-//    }
+    func tail (n: Int) -> Array {
+        return self[(count - n)..count]
+    }
 
     /**
     *  Returns the last count - n elements
     *  @return Last count - n elements
     */
-//    func skip (n: Int) -> Array {
-//        return self[n..count]
-//    }
+    func skip (n: Int) -> Array {
+        return self[n..count]
+    }
     
     /**
     *  Skips the elements of the array up until the condition returns false
     *  @param condition A function which returns a boolean if an element satisfies a given condition or not
     *  @return Elements of the array starting with the element which does not meet the condition
     */
-//    func skipWhile (condition: (Element) -> Bool) -> Array {
-//        
-//        var lastTrue = -1
-//        
-//        for (index, value) in enumerate(self) {
-//            if condition(value) {
-//                lastTrue = index
-//            } else {
-//                break
-//            }
-//        }
-//        
-//        return self.skip(lastTrue+1)
-//    }
+    func skipWhile (condition: (Element) -> Bool) -> Array {
+        
+        var lastTrue = -1
+        
+        for (index, value) in enumerate(self) {
+            if condition(value) {
+                lastTrue = index
+            } else {
+                break
+            }
+        }
+        
+        return self.skip(lastTrue+1)
+    }
     
     /**
     *  Returns a new array by removing duplicate values in self
@@ -518,9 +518,9 @@ extension Array {
     /**
     *  self.reduce with initial value self.first()
     */
-//    func reduce (combine: (Element, Element) -> Element) -> Element {
-//        return skip(1).reduce(first()!, combine: combine)
-//    }
+    func reduce (combine: (Element, Element) -> Element) -> Element {
+        return skip(1).reduce(first()!, combine: combine)
+    }
     
     /**
     *  self.reduce from right to left
@@ -532,9 +532,9 @@ extension Array {
     /**
     *  self.reduceRight with initial value self.last()
     */
-//    func reduceRight (combine: (Element, Element) -> Element) -> Element {
-//        return reverse().reduce(combine)
-//    }
+    func reduceRight (combine: (Element, Element) -> Element) -> Element {
+        return reverse().reduce(combine)
+    }
 
     /**
      *  Creates an array of elements from the specified indexes of self
@@ -624,12 +624,12 @@ extension Array {
     *  Returns a subarray in the given range
     *  @return Subarray or nil if the index is out of bounds
     */
-//    subscript (var range: Range<Int>) -> Array {
-//        //  Fix out of bounds indexes
-//        (range.startIndex, range.endIndex) = (range.startIndex.clamp(0, max: range.startIndex), range.endIndex.clamp(range.endIndex, max: count))
-//
-//        return Array(self[range] as Slice<T>)
-//    }
+    subscript (var range: Range<Int>) -> Array {
+        //  Fix out of bounds indexes
+        (range.startIndex, range.endIndex) = (range.startIndex.clamp(0, max: range.startIndex), range.endIndex.clamp(range.endIndex, max: count))
+
+        return Array(self[range] as Slice<T>)
+    }
 
     /**
     *  Same as `at`
